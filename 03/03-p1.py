@@ -50,7 +50,7 @@ col_sums = [sum(x) for x in zip(*bin_list)]
 gamma_bin_map = map(lambda x: '1' if (x > len(f)/2) else '0', col_sums)
 
 # convert to a binary string
-gamma_bin_str = ''.join(list(gamma_bin_map))
+gamma_bin_str = ''.join(gamma_bin_map)
 
 # convert binary string to an int
 gamma = int(gamma_bin_str,2)
