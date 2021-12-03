@@ -35,39 +35,40 @@
 import pathlib
 
 f = open(pathlib.Path(__file__).parent / 'input.txt', "r").read().splitlines()
+report = list(map(lambda x: list(map(int, list(x))),f))
 
 def most_common_bit(report, bit):
-    bin_list = list(map(lambda x: list(map(int, list(x))),report))
-    bits_sum = sum(list(zip(*bin_list))[bit])
+    bits_sum = sum(list(zip(*report))[bit])
 
-    if bits_sum > len(report)/2 or bits_sum == len(report)/2:
-        return '1'
+    if bits_sum >= len(report)/2:
+        return 1
     else:
-        return '0'
+        return 0
 
 def find_rating(report, type):
-    for bit in range(0,12):
+    for bit in range(0,len(report[0])):
         temp = []
         most_common = most_common_bit(report, bit)
         
         for n in report:
             if type == 'oxygen' and n[bit] == most_common:
                 temp.append(n)
-            elif type == 'c02' and n[bit] == str(~int(most_common,2) & 2**1-1):
+            elif type == 'c02' and n[bit] == ~most_common & 2**1-1:
                 temp.append(n)
         
         if not(temp):
-            return report[-1]
+            return ''.join(map(str,report[-1]))
         elif len(temp) == 1:
-            return temp[0]
+            return ''.join(map(str,temp[0]))
         else:
             report = temp.copy()
 
-c02 = f.copy()
-oxygen = f.copy()
+c02 = report.copy()
+oxygen = report.copy()
 
 c02_rating = find_rating(c02, 'c02')
 oxygen_rating = find_rating(oxygen, 'oxygen')
+
 life_support_rating = int(c02_rating,2)*int(oxygen_rating,2)
 
 print(life_support_rating)
