@@ -41,13 +41,13 @@
 import pathlib
 
 f = open(pathlib.Path(__file__).parent / 'input.txt', "r").read().splitlines()
-measurements = list(map(int,f))
+measurements = list(map(int, f))
 
 cur = 0
 num_increased = 0
 
 for i in measurements:
-    if i > cur and cur!=0:
+    if i > cur and cur != 0:
         num_increased += 1
     cur = i
 
