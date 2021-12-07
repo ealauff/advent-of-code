@@ -22,7 +22,7 @@
 
 # Using this new interpretation of the commands, calculate the horizontal position and depth you would have after following the planned course. What do you get if you multiply your final horizontal position by your final depth?
 
-# Your puzzle answer was 1857958050.
+# Your puzzle answer was XXXXXXXXXX.
 
 ########################################################################################################################################################################################################################################################
 
