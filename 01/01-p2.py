@@ -31,7 +31,7 @@
 
 # Consider sums of a three-measurement sliding window. How many sums are larger than the previous sum?
 
-# Your puzzle answer was 1683.
+# Your puzzle answer was XXXX 
 
 ########################################################################################################################################################################################################################################################
 
