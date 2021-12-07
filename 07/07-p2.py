@@ -19,7 +19,7 @@
 
 # Determine the horizontal position that the crabs can align to using the least fuel possible so they can make you an escape route! How much fuel must they spend to align to that position?
 
-# Your puzzle answer was 92335207.
+# Your puzzle answer was XXXXXXXX.
 
 ########################################################################################################################################################################################################################################################
 
