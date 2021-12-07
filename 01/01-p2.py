@@ -3,13 +3,13 @@
 
 # Instead, consider sums of a three-measurement sliding window. Again considering the above example:
 
-# 199  A      
-# 200  A B    
-# 208  A B C  
+# 199  A
+# 200  A B
+# 208  A B C
 # 210    B C D
 # 200  E   C D
 # 207  E F   D
-# 240  E F G  
+# 240  E F G
 # 269    F G H
 # 260      G H
 # 263        H
@@ -38,14 +38,14 @@
 import pathlib
 
 f = open(pathlib.Path(__file__).parent / 'input.txt', "r").read().splitlines()
-measurements = list(map(int,f))
+measurements = list(map(int, f))
 
 cur = 0
 num_increased = 0
 
-for i in range(2,len(measurements)):
+for i in range(2, len(measurements)):
     window = sum(measurements[i-2:i+1])
-    if window > cur and cur!= 0:
+    if window > cur and cur != 0:
         num_increased += 1
     cur = window
 
