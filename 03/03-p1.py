@@ -41,7 +41,7 @@ import pathlib
 f = open(pathlib.Path(__file__).parent / 'input.txt', "r").read().splitlines()
 
 # convert list of binary numbers to 2D array where each row is a binary number represented as a list of ints (ie 1s and 0s)
-bin_list = list(map(lambda x: list(map(int, list(x))),f))
+bin_list = list(map(lambda x: list(map(int, list(x))), f))
 
 # sum all of the columns of the 2D array
 col_sums = [sum(x) for x in zip(*bin_list)]
@@ -53,12 +53,12 @@ gamma_bin_map = map(lambda x: '1' if (x > len(f)/2) else '0', col_sums)
 gamma_bin_str = ''.join(gamma_bin_map)
 
 # convert binary string to an int
-gamma = int(gamma_bin_str,2)
+gamma = int(gamma_bin_str, 2)
 
 # invert each bit in the binary string to get epsilon
-epsilon = ~int(gamma_bin_str,2) & 2**len(f[0])-1
+epsilon = ~int(gamma_bin_str, 2) & 2**len(f[0])-1
 
-#print
+# print
 print(gamma*epsilon)
 
 ##################################################################################
