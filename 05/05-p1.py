@@ -37,7 +37,7 @@
 
 # Consider only horizontal and vertical lines. At how many points do at least two lines overlap?
 
-# Your puzzle answer was 6461.
+# Your puzzle answer was XXXX.
 
 ########################################################################################################################################################################################################################################################
 
