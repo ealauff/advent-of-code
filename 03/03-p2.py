@@ -1,3 +1,4 @@
+
 # --- Part Two ---
 # Next, you should verify the life support rating, which can be determined by multiplying the oxygen generator rating by the CO2 scrubber rating.
 
@@ -34,8 +35,6 @@
 
 import pathlib
 
-f = open(pathlib.Path(__file__).parent / 'input.txt', "r").read().splitlines()
-report = list(map(lambda x: list(map(int, list(x))),f))
 
 def most_common_bit(report, bit):
     bits_sum = sum(list(zip(*report))[bit])
@@ -45,23 +44,28 @@ def most_common_bit(report, bit):
     else:
         return 0
 
+
 def find_rating(report, type):
-    for bit in range(0,len(report[0])):
+    for bit in range(0, len(report[0])):
         temp = []
         most_common = most_common_bit(report, bit)
-        
+
         for n in report:
             if type == 'oxygen' and n[bit] == most_common:
                 temp.append(n)
             elif type == 'c02' and n[bit] == ~most_common & 2**1-1:
                 temp.append(n)
-        
+
         if not(temp):
-            return ''.join(map(str,report[-1]))
+            return ''.join(map(str, report[-1]))
         elif len(temp) == 1:
-            return ''.join(map(str,temp[0]))
+            return ''.join(map(str, temp[0]))
         else:
             report = temp.copy()
+
+
+f = open(pathlib.Path(__file__).parent / 'input.txt', "r").read().splitlines()
+report = list(map(lambda x: list(map(int, list(x))), f))
 
 c02 = report.copy()
 oxygen = report.copy()
@@ -69,7 +73,10 @@ oxygen = report.copy()
 c02_rating = find_rating(c02, 'c02')
 oxygen_rating = find_rating(oxygen, 'oxygen')
 
-life_support_rating = int(c02_rating,2)*int(oxygen_rating,2)
+life_support_rating = int(c02_rating, 2)*int(oxygen_rating, 2)
 
 print(life_support_rating)
 
+# IMPROVEMENTS:
+# Maybe not doing list(zip(*report)) every time we need to check most_common
+# Recursive divide and conquer method, find way to get most common bits for 2 binary numbers, then do this recursively
