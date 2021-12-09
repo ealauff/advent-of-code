@@ -1,9 +1,9 @@
 # --- Part Two ---
-# Unfortunately, considering only horizontal and vertical lines doesn't give you the full picture; 
+# Unfortunately, considering only horizontal and vertical lines doesn't give you the full picture;
 # you need to also consider diagonal lines.
 
-# Because of the limits of the hydrothermal vent mapping system, 
-# the lines in your list will only ever be horizontal, vertical, or a diagonal line at exactly 45 degrees. 
+# Because of the limits of the hydrothermal vent mapping system,
+# the lines in your list will only ever be horizontal, vertical, or a diagonal line at exactly 45 degrees.
 # In other words:
 
 # An entry like 1,1 -> 3,3 covers points 1,1, 2,2, and 3,3.
@@ -20,7 +20,7 @@
 # .1.....1..
 # 1.......1.
 # 222111....
-# You still need to determine the number of points where at least two lines overlap. 
+# You still need to determine the number of points where at least two lines overlap.
 # In the above example, this is still anywhere in the diagram with a 2 or larger - now a total of 12 points.
 
 # Consider all of the lines. At how many points do at least two lines overlap?
@@ -97,7 +97,6 @@ def lineHigh(p0, p1):
 f = open(pathlib.Path(__file__).parent / 'input.txt', "r").read().splitlines()
 
 points = {}
-
 lines = list(map(lambda x: x.split(' -> '), f))
 
 for line in lines:

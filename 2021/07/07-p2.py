@@ -39,7 +39,6 @@ f = open(pathlib.Path(__file__).parent / 'input.txt', "r").read().split(',')
 
 # get rid of /n at the end of the array
 f[-1] = f[-1].strip()
-
 crabs = list(map(int, f))
 total_fuel = [0]*(max(crabs) - min(crabs))
 
